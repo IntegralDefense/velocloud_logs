@@ -83,7 +83,6 @@ class VelocloudApi:
                 json_string = json.dumps(item)
                 wf.write("{}\n".format(json_string))
         list_length_string = str(len(list_of_items))
-        print("Wrote {} logs to {}.".format(list_length_string, log_file))
         logging.info("Wrote {} logs to {}.".format(list_length_string, log_file))
 
     def time_string_to_datetime(self, time_string):
@@ -117,11 +116,9 @@ class VelocloudEnterpriseApi(VelocloudApi):
             end (str): End time of the logs we want to pull.
         """
         logging.info("Getting logs for {}".format(type_))
-        print("Getting logs for {}".format(type_))
         log_list = self._get_logs_from_velocloud(start=start, end=end, type_=type_)
         log_count = str(len(log_list))
         logging.debug("Found {} logs for type: {}.".format(log_count, type_))
-        print("Found {} logs for type: {}.".format(log_count, type_))
         log_file = self.log_file.get(type_)
         self.write_to_file(log_file, log_list)
 
@@ -166,7 +163,7 @@ class VelocloudEnterpriseApi(VelocloudApi):
                 a list of the current call plus all child recursive
                 calls.
         """
-        print("Recursive count {} for {}.".format(str(count), type_))
+
         log_list = []
         if not body:
             body = self._build_body(start, end)
@@ -203,7 +200,6 @@ class VelocloudEnterpriseApi(VelocloudApi):
             return self.api.enterpriseGetEnterpriseAlerts(body=body)
         else:
             message = "Type {} is unexpected/unsupported.".format(type_)
-            print(message)
             logging.error(message)
             raise ValueError(message)
 
@@ -250,7 +246,6 @@ class VelocloudEnterpriseApi(VelocloudApi):
                 event_time = datetime.strptime(event[time_key], self.time_format)
             except KeyError:
                 message = "No valid time key found for event."
-                print(message)
                 logging.error(message)
                 raise ValueError(message)
             else:
