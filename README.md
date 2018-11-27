@@ -42,13 +42,13 @@ This script has not been configured to install yet, so you will have to clone di
 commands to install the Velocloud SDK.
 
 3. Install the rest of the requirements. You can take out the unneeded
-requirements if you do not plan on performing develolpment work (black, flake8, etc.).
+requirements if you do not plan on performing development work (black, flake8, etc.).
 
     ```bash
     (venv) ~/velocloud$ pip install -r requirements.txt
     ```
 
-4. ou will want to configure your environment. Rename (or copy) the `.env.example` file to a file named `.env`.
+4. You will want to configure your environment. Rename (or copy) the `.env.example` file to a file named `.env`.
 
     ```bash
     (venv) ~/velocloud$ cp .env.example .env
@@ -58,9 +58,9 @@ requirements if you do not plan on performing develolpment work (black, flake8, 
     (venv) ~/velocloud$ mv .env.example .env
     ```
 
-5. Fill out the `.env` file contents. These key/value pairs will be read by the `settings.py` file during runtime. _Note: The operator user/pass is not supported at this time._
+5. Fill out the `.env` file contents. These key/value pairs will be used by the `settings.py` file during runtime. _Note: The operator user/pass is not supported at this time._
 
-6. You may explore the `settings.py` file to see what other configurables there are. One important item is the `DEFAULT_TIME_DELTA` option (in seconds). This determines how far back you want to pull logs.  For example, if you have this option set to 600 seconds, and if you do not have a 'time.log' file (for example: your first run of the script), then this integer will be used to determine how far back from runtime you would like to look for logs.
+6. You may explore the `settings.py` file to see what other configurables there are. One important item is the `DEFAULT_TIME_DELTA` option. This determines how far back you want to pull logs. For example, if you have the `DEFAULT_TIME_DELTA` option set to 600 seconds, and if you do not have a 'time.log' file (for example: your first run of the script), then you will pull down event logs for the last ten minutes.
 
 7. Now you may run the script
 
