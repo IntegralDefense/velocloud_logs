@@ -117,4 +117,3 @@ dmypy.json
 # Local
 .vscode
 vcloud_library/
-testing.py
