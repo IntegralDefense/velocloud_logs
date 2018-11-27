@@ -25,7 +25,7 @@ SCRIPT_LOG_FILE = os.path.join(LOG_DIRECTORY, "script.log")
 FIREWALL_LOG_FILE = os.path.join(LOG_DIRECTORY, "firewall.log")
 EVENT_LOG_FILE = os.path.join(LOG_DIRECTORY, "events.log")
 ALERT_LOG_FILE = os.path.join(LOG_DIRECTORY, "alerts.log")
-LOG_LEVEL="DEBUG"
+LOG_LEVEL = "DEBUG"
 
 # Default Time config (in seconds)
 DEFAULT_TIME_DELTA = 600

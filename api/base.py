@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import json
 import logging
 
@@ -60,7 +60,7 @@ class VelocloudApi:
                 looking for.
         """
 
-        _end = datetime.now()
+        _end = datetime.now(tz=timezone.utc)
         if not start:
             _start = _end - timedelta(seconds=DEFAULT_TIME_DELTA)
             start = _start.strftime(self.time_format)
